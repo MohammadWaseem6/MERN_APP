@@ -1,6 +1,8 @@
 import express from 'express';
 import connectDB from './db.js';
 import createUser from './Routes/CreateUser.js';
+import DisplayData from './Routes/DisplayData.js';
+
 
 
 const app = express();
@@ -17,6 +19,7 @@ app.use((req, res, next) => {
     next();
 })
 app.use('/api', createUser);
+app.use('/api', DisplayData);
 // app.use('/login', loginuser);
 
 app.get('/', (req, res) => {
