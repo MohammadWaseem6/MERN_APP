@@ -3,3 +3,7 @@ waseem123
 
 mongodb+srv://mohammadwaseem001100:waseem123@cluster0.fg9pqil.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
 mongo import --uri "mongodb+srv://mohammadwaseem001100:waseem123@cluster0.fg9pqil.mongodb.net/?retryWrites=true&w=majority&FOODIE=Cluster0" --collection FoodItems --file foodData2.json --jsonArray C:\Users\Administrator\Desktop\foodData2.json
+
+
+ //"email": "johnnn.doe@example.com",
+ //"password": "pasjsword123",

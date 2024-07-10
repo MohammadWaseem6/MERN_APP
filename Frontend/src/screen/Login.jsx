@@ -1,9 +1,8 @@
 import { useState } from "react";
-import { Link,useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
   let navigate = useNavigate();
-
   const [credentials, setCredentials] = useState({
     email: "",
     password: "",
@@ -20,15 +19,16 @@ const Login = () => {
       });
 
       const result = await response.json();
-      console.log(result);
+      localStorage.setItem('AuthToken', result.AuthToken);
+      console.log(localStorage.getItem('AuthToken'));
       alert("successfully Logged in")
+      // console.log("successfully logged in");
       navigate("/");
 
     } catch (error) {
       console.error('Error logging in:', error);
     }
   };
-
   const handleChange = (e) => {
     setCredentials({
       ...credentials,
