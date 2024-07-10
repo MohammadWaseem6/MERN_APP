@@ -14,6 +14,7 @@ const connectDB = async () => {
         const data = await fetchData.find({}).toArray();
         console.log();
         global.FoodItems = data
+        console.log(data);
     } catch (err) {
         console.error(err);
         throw err;
