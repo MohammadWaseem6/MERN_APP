@@ -1,42 +1,34 @@
-import PropTypes from "prop-types";
-import image1 from "../assets/images/img1.jpg";
-
+/* eslint-disable react/prop-types */
 const Card = ({ item }) => {
   return (
-    <div className="flex flex-col bg-gray-500 m-4 text-center text-white rounded-lg overflow-hidden shadow-lg">
-      <div className="relative overflow-hidden">
+    <div className="h-auto bg-teal-900 gap-4  p-4 text-center text-white rounded-lg relative  ">
+      <div className="overflow-hidden rounded-lg h-[200px] mb-4">
         <img
-          src={image1}
-          alt="Product"
-          className="object-cover w-full h-48 sm:h-64 md:h-64 lg:h-64 xl:h-64"
+          src={item.img}
+          alt={item.name}
+          className="object-cover w-full h-full"
         />
       </div>
-      <div className="p-4">
-        <h5 className="text-2xl font-semibold mb-2">{item.name}</h5>
-        <p className="text-sm mb-4">{item.description}</p>
-
-        <div className="flex items-center justify-between">
-          <select className="bg-teal-400">
-            {Array.from(Array(6), (e, i) => (
-              <option key={i + 1} value={i + 1}>
-                {i + 1}
-              </option>
-            ))}
-          </select>
-          <select className="text-black ml-2 bg-teal-400">
-            <option value="size">Size</option>
-            <option value="full">Full</option>
-            <option value="half">Half</option>
-          </select>
-          <div className="font-semibold">Total Price</div>
-        </div>
+      <h5 className="text-2xl font-bold uppercase">{item.name}</h5>
+      <p className="text-sm mt-2 mb-4 font-semibold text-gray-300">{item.description}</p>
+      
+      <div className="flex items-center justify-center space-x-2">
+        <select className="text-black p-1 rounded">
+          {Array.from(Array(6), (e, i) => (
+            <option key={i + 1} value={i + 1}>
+              {i + 1}
+            </option>
+          ))}
+        </select>
+        <select className="text-black p-1 rounded">
+          <option value="size">Size</option>
+          <option value="full">Full</option>
+          <option value="half">Half</option>
+        </select>
+        <div className="ml-2 font-semibold">Total Price</div>
       </div>
     </div>
   );
-};
-
-Card.propTypes = {
-  item: PropTypes.object.isRequired,
 };
 
 export default Card;

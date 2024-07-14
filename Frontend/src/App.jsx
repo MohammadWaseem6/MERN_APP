@@ -7,6 +7,7 @@ import SignUp from "./screen/SignUp.jsx"
 
 const App = () => {
   return (
+    
     <BrowserRouter>
       <Routes>
         <Route exact path="/" element={<Home />} />
