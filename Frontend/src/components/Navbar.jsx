@@ -7,7 +7,7 @@ const Navbar = () => {
         setIsMenuOpen(!isMenuOpen);
     };
     return (
-        <div className="bg-[#1d2525] text-white">
+        <div className="bg-[#124076] text-white">
             <div className="container mx-auto px-4 flex justify-between items-center h-16">
                 <div className="flex items-center">
                     <NavLink to="/" className="text-xl font-bold">

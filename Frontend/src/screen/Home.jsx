@@ -30,35 +30,34 @@ const Home = () => {
     }, []);
 
     return (
-        <div>
+        <div className="min-h-screen flex flex-col">
             <Navbar />
-            <div>
-                <div className="relative">
-                    <img
-                        src={image1}
-                        className="absolute inset-0 w-full h-full object-cover"
-                        alt="Background"
-                    />
-                    <div className="absolute inset-0 bg-black opacity-50"></div>
-                    <div className="relative h-screen flex justify-center items-center text-white text-center">
-                        <div className="container mx-auto relative z-10">
-                            <input
-                                type="text"
-                                placeholder="Search..."
-                                className="bg-black px-4 py-2 rounded border border-gray-300 w-3/4 md:w-1/2 lg:w-1/3"
-                                value={search}
-                                onChange={(e) => setSearch(e.target.value)}
-                            />
-                            
-                        </div>
+            <div className="relative flex-1">
+                <img
+                    src={image1}
+                    className="absolute inset-0 w-full h-full object-cover"
+                    alt="Background"
+                />
+                <div className="absolute inset-0 bg-black opacity-50"></div>
+                <div className="relative h-screen flex justify-center items-center text-white text-center">
+                    <div className="container mx-auto relative z-10">
+                        <input
+                            type="text"
+                            placeholder="Search..."
+                            className="bg-black px-4 py-2 rounded border border-gray-300 w-3/4 md:w-1/2 lg:w-1/3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            value={search}
+                            onChange={(e) => setSearch(e.target.value)}
+                        />
                     </div>
                 </div>
             </div>
-            <div className="mt-4 bg-orange-400 p-4">
+            <div className="mt-4 p-4 bg-transparent">
                 {FoodCate.length > 0 ? (
                     FoodCate.map((category) => (
                         <div key={category._id} className="mb-8">
-                            <h2 className="text-2xl mb-4 text-center bg-[#2F3645] uppercase rounded-sm text-white font-extrabold">{category.CategoryName}</h2>
+                            <h2 className="text-2xl mb-4 text-center bg-[#2F3645] uppercase rounded-sm text-white font-extrabold">
+                                {category.CategoryName}
+                            </h2>
                             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
                                 {FoodItem.length > 0 &&
                                     FoodItem.filter((item) => item.CategoryName === category.CategoryName && item.name.toLowerCase().includes(search.toLowerCase()))
