@@ -30,15 +30,15 @@ const Home = () => {
     }, []);
 
     return (
-        <div className="min-h-screen flex flex-col">
+        <div className="min-h-screen flex flex-col bg-slate-500">
             <Navbar />
-            <div className="relative flex-1">
+            <div className="relative flex-1 ">
                 <img
                     src={image1}
                     className="absolute inset-0 w-full h-full object-cover"
                     alt="Background"
                 />
-                <div className="absolute inset-0 bg-black opacity-50"></div>
+                <div className="absolute inset-0 bg-black opacity-50 "></div>
                 <div className="relative h-screen flex justify-center items-center text-white text-center">
                     <div className="container mx-auto relative z-10">
                         <input
