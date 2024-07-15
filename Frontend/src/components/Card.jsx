@@ -10,11 +10,11 @@ const Card = ({ item, options }) => {
 
     const handleAddToCart = () => {
         console.log(`Added ${item.name} to cart`);
-        // Add item to cart logic here
+     
     }
 
     return (
-        <div className="bg-teal-900 text-white rounded-lg overflow-hidden shadow-lg p-4">
+        <div className="bg-teal-900 text-white rounded-lg overflow-hidden shadow-lg p-4 border-2 solid-black">
             <div className="h-[150px] mb-4">
                 <img
                     src={item.img}
