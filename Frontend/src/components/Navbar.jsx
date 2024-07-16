@@ -1,9 +1,17 @@
 import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import Modal from "./Modal";
+import Cart from "./Cart";
+
+
+import { FaShoppingCart } from "react-icons/fa";
+import { IoMdLogOut } from "react-icons/io";
+
+
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+    const [cartView, setCartView] = useState(false);
 
     // remove token to logout
     const handleLogout = () => {
@@ -25,17 +33,21 @@ const Navbar = () => {
                     {localStorage.getItem('AuthToken') ? (
                         <>
                             <div className="hidden md:flex items-center space-x-4">
+                                <button
+                                    onClick={() => setCartView(true)}
+                                    className="flex items-center space-x-2 rounded-lg px-3 py-2 hover:bg-red-800 transition-colors duration-300 ease-in-out cursor-pointer"
+                                >
+                                    {/* <span>My Cart</span> */}
+                                    <FaShoppingCart className="text-3xl" title="check my Cart" />
+                                </button>
+                                <button onClick={handleLogout} className="rounded-lg  hover:bg-green-400">
 
-                                <Link to="/cart" className="border-2 border-sky-500 rounded-lg px-4 py-2 hover:bg-red-800">
-                                    My Cart
-                                </Link>
-                                <button onClick={handleLogout} className="border-2 border-sky-500 rounded-lg px-4 py-2 hover:bg-red-800">
-                                    Logout
+                                    <IoMdLogOut className="text-3xl" title="Logout" />
+
                                 </button>
                             </div>
                         </>
                     ) : (
-
                         //home page
                         <div className="hidden md:flex items-center space-x-4">
                             <NavLink to="/login" className="border-2 border-sky-500 rounded-lg px-4 py-2 hover:bg-red-800">
@@ -47,18 +59,16 @@ const Navbar = () => {
                         </div>
                     )}
 
-
                     <div className="md:hidden flex items-center">
                         <button
                             onClick={() => setIsMenuOpen(!isMenuOpen)}
                             className="text-white focus:outline-none"
                         >
-                            <svg
-                                className="w-6 h-6"
+                            {/* <svg
+                              className="w-6 h-6"
                                 fill="none"
                                 stroke="currentColor"
                                 viewBox="0 0 24 24"
-
                             >
                                 <path
                                     strokeLinecap="round"
@@ -66,7 +76,7 @@ const Navbar = () => {
                                     strokeWidth="2"
                                     d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
                                 ></path>
-                            </svg>
+                            </svg> */}
                         </button>
                     </div>
                 </div>
@@ -78,10 +88,12 @@ const Navbar = () => {
                     <div className="flex flex-col items-center space-y-4 py-4">
                         {localStorage.getItem('AuthToken') ? (
                             <>
-
-                                <Link to="/cart" className="border-2 border-sky-500 rounded-lg px-4 py-2 hover:bg-red-800">
-                                    My Cart
-                                </Link>
+                                <button
+                                    onClick={() => setCartView(true)}
+                                    className="flex items-center space-x-2 border-2 border-sky-500 rounded-lg px-4 py-2 hover:bg-red-800 transition-colors duration-300 ease-in-out cursor-pointer"
+                                >
+                                    <span>My Cart</span>
+                                </button>
                                 <button onClick={handleLogout} className=" text-red-400 border-2 border-sky-500 rounded-lg px-4 py-2 hover:bg-red-800">
                                     Logout
                                 </button>
@@ -98,6 +110,13 @@ const Navbar = () => {
                         )}
                     </div>
                 </div>
+            )}
+
+            {/* Cart Modal */}
+            {cartView && (
+                <Modal onClose={() => setCartView(false)}>
+                    <Cart />
+                </Modal>
             )}
         </div>
     );
