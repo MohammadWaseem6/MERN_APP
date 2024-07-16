@@ -62,7 +62,11 @@ const Home = () => {
                                 {FoodItem.length > 0 &&
                                     FoodItem.filter((item) => item.CategoryName === category.CategoryName && item.name.toLowerCase().includes(search.toLowerCase()))
                                         .map((filteredItem) => (
-                                            <Card key={filteredItem._id} item={filteredItem} options={filteredItem.options[0]} />
+                                            <Card
+                                                key={filteredItem._id}
+                                                item={filteredItem}
+                                                options={filteredItem.options[0]}
+                                            />
                                         ))}
                             </div>
                         </div>
