@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import Modal from "./Modal";
 import Cart from "./Cart";
 
-
+//icons
 import { FaShoppingCart } from "react-icons/fa";
 import { IoMdLogOut } from "react-icons/io";
 import { useCart } from "./ContextReducer";
@@ -37,11 +37,12 @@ const Navbar = () => {
                             <div className="hidden md:flex items-center space-x-4">
                                 <button
                                     onClick={() => setCartView(true)}
-                                    className="flex items-center space-x-2 rounded-lg px-3 py-2 hover:bg-red-800 transition-colors duration-300 ease-in-out cursor-pointer"
+                                    className="relative flex items-center space-x-2 rounded-lg px-3 py-2 hover:bg-red-800 transition-colors duration-300 ease-in-out cursor-pointer"
                                 >
-                                  
-                                    <FaShoppingCart className="text-3xl" title="check my Cart" />
-                                    
+                                    <FaShoppingCart className="text-3xl" title="Check My Cart" />
+                                    <span className="absolute top-0 right-0 -mt-1 -mr-1 bg-red-600 text-white rounded-full w-5 h-5 flex items-center justify-center text-sm font-medium">
+                                        {data.length}
+                                    </span>
                                 </button>
                                 <button onClick={handleLogout} className="rounded-lg  hover:bg-green-400">
 

@@ -1,3 +1,4 @@
+/* eslint-disable no-case-declarations */
 /* eslint-disable react/prop-types */
 // eslint-disable-next-line no-unused-vars
 
@@ -7,10 +8,19 @@ const reducer = (state, action) => {
     switch (action.type) {
         case 'ADD_TO_CART':
             return [...state, action.payload];
+
+        case 'REMOVE':
+            let newArray = [...state];
+            newArray.splice(action.index, 1);
+            return newArray;
+
         default:
+            console.log("error: unknown action");
             return state;
     }
+
 };
+
 
 const CartStateContext = createContext();
 const CartDispatchContext = createContext();
