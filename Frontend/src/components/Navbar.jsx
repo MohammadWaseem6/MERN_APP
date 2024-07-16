@@ -6,12 +6,14 @@ import Cart from "./Cart";
 
 import { FaShoppingCart } from "react-icons/fa";
 import { IoMdLogOut } from "react-icons/io";
+import { useCart } from "./ContextReducer";
 
 
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [cartView, setCartView] = useState(false);
+    let data = useCart();
 
     // remove token to logout
     const handleLogout = () => {
@@ -37,8 +39,9 @@ const Navbar = () => {
                                     onClick={() => setCartView(true)}
                                     className="flex items-center space-x-2 rounded-lg px-3 py-2 hover:bg-red-800 transition-colors duration-300 ease-in-out cursor-pointer"
                                 >
-                                    {/* <span>My Cart</span> */}
+                                  
                                     <FaShoppingCart className="text-3xl" title="check my Cart" />
+                                    
                                 </button>
                                 <button onClick={handleLogout} className="rounded-lg  hover:bg-green-400">
 

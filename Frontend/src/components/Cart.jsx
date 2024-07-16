@@ -1,8 +1,6 @@
 import { useCart, useDispatchCart } from "./ContextReducer";
 import { FaTrash } from 'react-icons/fa';
 
-
-
 const Cart = () => {
     let data = useCart();
     let dispatch = useDispatchCart();
@@ -31,30 +29,32 @@ const Cart = () => {
                             <th className="p-2"></th>
                         </tr>
                     </thead>
-                    <tbody className="bg-blue-900 font-semibold text-2xl text-white uppercase ">
-
+                    <tbody className="bg-blue-900 font-semibold text-2xl text-white uppercase">
                         {data.map((food, index) => (
-                            <tr key={index}> 
+                            <tr key={index}>
                                 <th scope="row">{index + 1}</th>
                                 <td>{food.name}</td>
                                 <td>{food.qnty}</td>
                                 <td>{food.size}</td>
                                 <td>{food.price}</td>
                                 <td>
-                                    <button onClick={() => dispatch({ type: "REMOVE", index: index })}>
+                                    <button
+                                        className="relative group"
+                                        onClick={() => dispatch({ type: "REMOVE", index: index })}
+                                    >
                                         <FaTrash />
+                                        <span className="absolute bottom-full mb-1 left-1/2 transform -translate-x-1/2 whitespace-nowrap bg-gray-800 text-white text-xs rounded py-1 px-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                            Remove Item
+                                        </span>
+                                        
                                     </button>
                                 </td>
                             </tr>
                         ))}
                     </tbody>
                 </table>
-{/*                 
-                <button className="bg-red-500 text-white rounded-lg w-[100px] mt-5 py-2 hover:bg-yellow-400 transition-colors font-semibold">
-                    Check Out
-                    
-                </button> */}
-                <div className="bg-purple-500 text-2xl font-extrabold text-white">
+
+                <div className="bg-purple-500 text-2xl font-extrabold text-white mt-5 p-4 rounded-lg">
                     <h1>Total Price: {totalPrice} /-</h1>
                 </div>
             </div>
