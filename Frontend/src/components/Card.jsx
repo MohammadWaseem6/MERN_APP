@@ -12,24 +12,19 @@ const Card = ({ item, options }) => {
     const [size, setSize] = useState('');
     const [finalPrice, setFinalPrice] = useState(0);
 
-    // if (!item) {
-    //     console.error("Card component received undefined or null item");
-    //     return null;
-    // }
-
     let priceOptions = Object.keys(options || {});
 
     useEffect(() => {
-        if (priceOptions.length > 0) {
+        if (priceOptions.length > 0 && !size) {
             setSize(priceOptions[0]);
         }
-    }, [priceOptions]);
+    }, [priceOptions, size]);
 
     useEffect(() => {
         if (size && options[size]) {
             setFinalPrice(qnty * parseInt(options[size]));
         }
-    }, [qnty, size, options,]);
+    }, [qnty, size, options]);
 
     const handleAddToCart = async () => {
         await dispatch({

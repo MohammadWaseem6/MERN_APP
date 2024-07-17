@@ -8,7 +8,7 @@ const Cart = () => {
     if (data.length === 0) {
         return (
             <div className="text-center bg-slate-900 w-full h-full text-white font-semibold">
-                <h1 className="w-full">Cart is empty</h1>
+                <h1 className="w-full font-extrabold text-2xl bg-[#B4E380] rounded-lg text-black uppercase">Cart is empty </h1>
             </div>
         );
     }
@@ -20,16 +20,16 @@ const Cart = () => {
             <div className="min-h-[800px] bg-blue-950 p-4">
                 <table className="w-full text-left bg-white rounded-lg shadow-lg">
                     <thead>
-                        <tr className="bg-gray-200">
-                            <th className="p-2 bg-red-600">#</th>
-                            <th className="p-2 bg-orange-500">Name</th>
-                            <th className="p-2 bg-green-500">Quantity</th>
-                            <th className="p-2 bg-pink-500">Option</th>
+                        <tr className="bg-gray-200 font-semibold">
+                            <th className="p-2 ">#</th>
+                            <th className="p-2 ">Name</th>
+                            <th className="p-2 ">Quantity</th>
+                            <th className="p-2">Options</th>
                             <th className="p-2">Amount</th>
                             <th className="p-2"></th>
                         </tr>
                     </thead>
-                    <tbody className="bg-blue-900 font-semibold text-2xl text-white uppercase">
+                    <tbody className="bg-blue-900 font-semibold text-2xl text-white ">
                         {data.map((food, index) => (
                             <tr key={index}>
                                 <th scope="row">{index + 1}</th>
