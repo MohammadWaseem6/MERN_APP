@@ -27,16 +27,27 @@ const Card = ({ item, options }) => {
     }, [qnty, size, options]);
 
     const handleAddToCart = async () => {
-        await dispatch({
-            type: 'ADD_TO_CART',
-            payload: {
-                ...item,
-                qnty,
-                size,
-                price: finalPrice,
-            },
-        });
-        console.log(data);
+        let existingItem = data.find(food => food.id === item._id && food.size === size);
+
+        console.log("Existing item:", existingItem);
+
+        if (existingItem) {
+            await dispatch({ type: "UPDATE", id: item._id, size: size, price: finalPrice, qnty: qnty });
+        } else {
+            await dispatch({
+                type: 'ADD_TO_CART',
+                payload: {
+                    id: item._id,
+                    name: item.name,
+                    img: item.img,
+                    description: item.description,
+                    qnty,
+                    size,
+                    price: finalPrice,
+                },
+            });
+        }
+        console.log("Cart data after add/update:", data);
     };
 
     return (
