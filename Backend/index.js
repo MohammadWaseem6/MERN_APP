@@ -2,8 +2,7 @@ import express from 'express';
 import connectDB from './db.js';
 import createUser from './Routes/CreateUser.js';
 import DisplayData from './Routes/DisplayData.js';
-
-
+import orderData from './Routes/OrderData.js';
 
 const app = express();
 const port = 3000;
@@ -15,12 +14,13 @@ app.use((req, res, next) => {
     res.header(
         "Access-Control-Allow-Headers",
         "Origin, X-Requested-With, Content-Type, Accept, Authorization"
-    )
+    );
     next();
-})
+});
+
 app.use('/api', createUser);
 app.use('/api', DisplayData);
-// app.use('/login', loginuser);
+app.use('/api', orderData);
 
 app.get('/', (req, res) => {
     res.send('Hello World!');

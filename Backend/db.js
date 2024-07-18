@@ -4,7 +4,7 @@ const mongoURI = "mongodb+srv://Foodie:foodie123@clusterfoodie.a6d9mhn.mongodb.n
 
 const connectDB = async () => {
     try {
-        await mongoose.connect(mongoURI, { });
+        await mongoose.connect(mongoURI, {});
         console.log("DATABASE CONNECTED");
 
         const db = mongoose.connection.db;

@@ -20,6 +20,7 @@ const Login = () => {
 
       const result = await response.json();
       localStorage.setItem('AuthToken', result.AuthToken);
+      localStorage.setItem('userEmail', result.email);
       console.log(localStorage.getItem('AuthToken'));
       alert("successfully Logged in")
       // console.log("successfully logged in");
